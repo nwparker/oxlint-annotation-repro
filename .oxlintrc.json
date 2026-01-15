@@ -1,5 +1,10 @@
 {
-  "rules": {
-    "max-lines": ["warn", { "max": 20, "skipBlankLines": true, "skipComments": true }]
-  }
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "rules": {
+        "max-lines": ["warn", { "max": 20, "skipBlankLines": true, "skipComments": true }]
+      }
+    }
+  ]
 }
