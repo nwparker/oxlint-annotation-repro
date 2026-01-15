@@ -28,12 +28,12 @@ while IFS= read -r line; do
     fi
 
     if [[ "$rule" == "eslint(max-lines)" && -n "${OXLINT_PR_NUMBER:-}" && -n "${OXLINT_PR_HEAD_SHA:-}" && -n "${GITHUB_REPOSITORY:-}" ]]; then
-      # NOTE: This intentionally uses -f line=... (string) to demonstrate failure.
+      # Use -F so line is sent as an integer.
       gh api -X POST "repos/${GITHUB_REPOSITORY}/pulls/${OXLINT_PR_NUMBER}/comments" \
         -f body="[oxlint] ${rule}: ${message}" \
         -f commit_id="$OXLINT_PR_HEAD_SHA" \
         -f path="$file" \
-        -f line="$line_num" \
+        -F line="$line_num" \
         -f side="RIGHT" >/dev/null
     fi
   else
