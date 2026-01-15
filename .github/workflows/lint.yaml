@@ -19,7 +19,7 @@ jobs:
         run: npm ci
       - name: Run oxlint (unix format)
         run: |
-          npx oxlint -f unix src/**/*.ts 2>&1 | ./scripts/oxlint-to-github-annotations.sh
+          npx oxlint -f unix --config .oxlintrc.json src/**/*.ts 2>&1 | ./scripts/oxlint-to-github-annotations.sh
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OXLINT_PR_NUMBER: ${{ github.event.pull_request.number }}
