@@ -1,0 +1,5 @@
+{
+  "rules": {
+    "max-lines": ["warn", { "max": 20, "skipBlankLines": true, "skipComments": true }]
+  }
+}
